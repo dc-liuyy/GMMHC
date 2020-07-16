@@ -18,13 +18,14 @@ generate_data <- function(N,p,d,mr){
   phi_real <- c(1/3,1/3,1/3)
   num_real <- rmultinom(1,N,phi_real)
   class_real <- c(rep(1,num_real[1]),rep(2,num_real[2]),rep(3,num_real[3]))
-  for (i in 1:d){
-    rho <- 0.5
-    col1 <- cumprod(c(1,rep(rho,p-1)))
-    col2 <- cumprod(c(1,rep(1/rho,p-1)))    
-    cov_X <- col1 %*% t(col2)
-    cov_X[upper.tri(cov_X)] <- rev(cov_X[lower.tri(cov_X)])
     
+  rho <- 0.5
+  col1 <- cumprod(c(1,rep(rho,p-1)))
+  col2 <- cumprod(c(1,rep(1/rho,p-1)))    
+  cov_X <- col1 %*% t(col2)
+  cov_X[upper.tri(cov_X)] <- rev(cov_X[lower.tri(cov_X)])
+    
+  for (i in 1:d){   
     X_array[1:num_real[1],,i] <- rmnorm(num_real[1], rep(90, p), cov_X*9 )
     
     X_array[(1:num_real[2])+num_real[1],,i] <- rmnorm(num_real[2], rep(100, p), cov_X*9)
