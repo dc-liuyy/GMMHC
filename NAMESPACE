@@ -1,0 +1,4 @@
+exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)
+import(Rcpp)
+useDynLib(GMMHC, .registration = TRUE)
