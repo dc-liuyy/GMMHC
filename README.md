@@ -8,6 +8,10 @@ library(devtools)
 install_github("dc-liuyy/GMMHC")
 ```
 
+## Usage
+
+[GMMHC-manual.pdf](https://github.com/dc-liuyy/GMMHC/blob/master/GMMHC-manual.pdf) ---------- Details of the usage of the package.
+
 ## Example
 
 ```R

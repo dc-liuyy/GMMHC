@@ -33,9 +33,10 @@ init_para_kmeans <- function(X, K){
 
 }
 
-GMMHC <- function(X_array, ks, min.nc=2, max.nc=15, maxiter = 100, epsilon_dif= 1e-6,
+GMMHC <- function(X_array, ks, min.nc=2, max.nc=15, maxiter = 100, 
                   distance = "euclidean", method="average",index_nb = "kl"){
   library(NbClust)
+  epsilon_dif= 1e-6
   d <- dim(X_array)[3]
   for (i in 1:d){
     output <- list()
